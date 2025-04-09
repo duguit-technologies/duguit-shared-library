@@ -4,7 +4,7 @@
 </template>
 
 <script setup lang="ts">
-import { useSpinnerStore } from '@/stores/spinnerStore';
+import { useSpinnerStore } from '../stores/spinnerStore';
 
 const spinnerStore = useSpinnerStore();
 </script>
