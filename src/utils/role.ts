@@ -1,4 +1,4 @@
-import jsonRole from '@/json/role.json';
+import jsonRole from '../json/role.json';
 import type {Privilege, RoleCreate} from '@/types/type';
 
 // Retourne une copie (ici shallow copy) de l'objet par défaut
