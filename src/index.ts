@@ -22,4 +22,4 @@ export * from './types/type.d'
 export * from './utils/role'
 
 // Axios
-export * from './axios'
+export { default as api } from './axios'
