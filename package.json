@@ -1,0 +1,42 @@
+{
+  "name": "duguit-shared-library",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "scripts": {
+    "dev": "vite --host=0.0.0.0 --port=3002",
+    "test": "vitest",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "flowbite": "^2.5.2",
+    "jwt-decode": "^4.0.0"
+  },
+  "peerDependencies": {
+    "pinia": "^2.1.7",
+    "vue": "^3.4.29",
+    "vue-router": "^4.3.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.9",
+    "@tsconfig/node20": "^20.1.4",
+    "@types/node": "^20.14.5",
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vitejs/plugin-vue-jsx": "^4.0.0",
+    "@vue/tsconfig": "^0.5.1",
+    "autoprefixer": "^10.4.20",
+    "jsdom": "^26.0.0",
+    "npm-run-all2": "^6.2.0",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "~5.4.0",
+    "vite": "^5.3.1",
+    "vitest": "^3.0.2",
+    "vue-tsc": "^2.0.21"
+  }
+}
