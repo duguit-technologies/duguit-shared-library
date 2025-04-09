@@ -183,3 +183,20 @@ type Dossier = {
     etat_dossier_client?: boolean;
     lst_technicien?: UserResponse[]; // Assuming UserResponse is defined elsewhere
 };
+
+export {
+    User,
+    DecodedToken,
+    Role,
+    RoleCreate,
+    Privilege,
+    UserResponse,
+    AvisClient,
+    Intervention,
+    Fourniture_envoye,
+    Fluide_Caloporteur,
+    Horaire_Pointage,
+    Utilisation_Fourniture,
+    Kit_fourniture,
+    Dossier
+}
