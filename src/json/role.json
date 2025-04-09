@@ -15,8 +15,8 @@
     "can_create_user": false,
     "can_add_user_to_intervention": false,
     "can_remove_user_from_intervention": false,
-    "can_login_sav": false,
-    "can_login_be": false,
+    "can_access_sav": false,
+    "can_access_be": false,
     "can_generate_tia_project": false,
     "can_export_standard_fb_to_xml": false,
     "tier": 1,
@@ -37,8 +37,8 @@
     "can_create_user": false,
     "can_add_user_to_intervention": false,
     "can_remove_user_from_intervention": false,
-    "can_login_sav": false,
-    "can_login_be": false,
+    "can_access_sav": false,
+    "can_access_be": false,
     "can_generate_tia_project": false,
     "can_export_standard_fb_to_xml": false,
     "tier": 0
@@ -63,8 +63,8 @@
     "can_create_user": "Créer un utilisateur",
     "can_add_user_to_intervention": "Ajouter un intervenant à une intervention",
     "can_remove_user_from_intervention": "Supprimer un intervenant d'une intervention",
-    "can_login_sav": "Peut se connecter aux applications SAV",
-    "can_login_be": "Peut se connecter aux applications BE",
+    "can_access_sav": "Peut acceder aux applications SAV",
+    "can_access_be": "Peut acceder aux applications BE",
     "can_generate_tia_project": "Peut Générer un Projet TIA Portal (nécessite TIA OPENESS)",
     "can_export_standard_fb_to_xml": "Peut exporter la Bibliothèque de fonctions standards en XML"
   }

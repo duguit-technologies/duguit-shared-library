@@ -35,8 +35,8 @@ type Role = {
     can_create_user: boolean;
     can_add_user_to_intervention: boolean;
     can_remove_user_from_intervention: boolean;
-    can_login_sav: boolean;
-    can_login_be: boolean;
+    can_access_sav: boolean;
+    can_access_be: boolean;
     can_generate_tia_project: boolean;
     can_export_standard_fb_to_xml: boolean;
     tier: number;
@@ -59,8 +59,8 @@ type RoleCreate = {
     can_create_user: boolean;
     can_add_user_to_intervention: boolean;
     can_remove_user_from_intervention: boolean;
-    can_login_sav: boolean;
-    can_login_be: boolean;
+    can_access_sav: boolean;
+    can_access_be: boolean;
     can_generate_tia_project: boolean;
     can_export_standard_fb_to_xml: boolean;
     tier: number;
@@ -82,8 +82,8 @@ type Privilege = {
     can_create_user: boolean;
     can_add_user_to_intervention: boolean;
     can_remove_user_from_intervention: boolean;
-    can_login_sav: boolean;
-    can_login_be: boolean;
+    can_access_sav: boolean;
+    can_access_be: boolean;
     can_generate_tia_project: boolean;
     can_export_standard_fb_to_xml: boolean;
     tier: number;
