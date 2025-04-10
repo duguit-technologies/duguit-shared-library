@@ -174,6 +174,7 @@ export const useAuthStore = defineStore('auth', () => {
         localStorage.removeItem('refresh_token');
         sessionStorage.removeItem('privileges');
         await router.push('/');
+        // window.location.href = 'http://app.duguit.local'
     };
 
     // Récupère l'utilisateur en mémoire (si non disponible, lance le fetch)

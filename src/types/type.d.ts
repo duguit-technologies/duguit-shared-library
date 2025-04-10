@@ -1,7 +1,7 @@
 export type ProjectComposition = Array<string>;
 export type ConfigurationData = { [key: string]: string };
 
-export interface Toast {
+export interface ToastType {
     id: number;
     type: string;
     message: string;

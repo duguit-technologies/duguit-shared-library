@@ -1,8 +1,8 @@
 // src/composables/useToast.js
 import { ref } from 'vue';
-import type {Toast} from "../types/type";
+import type { ToastType } from "../types/type.d";
 
-const toasts = ref<Toast[]>([]);
+const toasts = ref<ToastType[]>([]);
 
 
 export function useToast() {
