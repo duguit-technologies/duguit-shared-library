@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "main": "./src/index.ts",
+  "main": ".dist/duguit-shared-library.umd.js",
   "scripts": {
     "dev": "vite --host=0.0.0.0 --port=3002",
     "test": "vitest",

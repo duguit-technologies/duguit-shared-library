@@ -19,7 +19,14 @@ export default defineConfig({
     },
     rollupOptions: {
       // éventuellement external si tu veux exclure Vue, etc.
-      external: ['vue']
+      external: ['vue', 'pinia', 'vue-router'],
+      output: {
+        globals: {
+          vue: 'Vue',
+          pinia: 'Pinia',
+          'vue-router': 'VueRouter'
+        }
+      }
     }
   }
 })
