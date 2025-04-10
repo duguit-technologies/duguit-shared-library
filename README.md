@@ -20,6 +20,7 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import 'flowbite';
+import 'duguit-shared-library/dist/duguit-shared-library.css';
 import {setApiBaseURL} from "duguit-shared-library";
 
 const app = createApp(App)
@@ -31,11 +32,55 @@ setApiBaseURL(import.meta.env.VITE_API_URL)
 app.mount('#app')
 ```
 
-### Toasts
+### Style css
 
-Pour utiliser les toasts avec tailwind il faut redefinir leur style:   
+Pour utiliser le style css de la lib dans le main.ts ajouter l'import du fichier css
 ```
-<Toast class="absolute bottom-5 right-5"/>
+import 'duguit-shared-library/dist/duguit-shared-library.css';
+```
+
+Avec tailwind 3 ajouter au fichier de config :   
+```
+'./node_modules/duguit-shared-library/dist/**/*.{js,vue,ts}'
+```
+complet 
+```
+/** @type {import('tailwindcss').Config} */
+import forms from '@tailwindcss/forms';
+import flowbite from 'flowbite/plugin';
+
+export default {
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+    "./node_modules/flowbite/**/*.js",
+    './node_modules/duguit-shared-library/dist/**/*.{js,vue,ts}'
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: '#2B2D42',
+        secondary: '#EF233C',
+        neutral: '#EDF2F4',
+        primaryVariant: '#8D99AE',
+        secondaryVariant: '#D90429'
+      },
+    },
+    safelist: [
+      // Liste des classes dynamiques qui doivent être incluses dans la génération
+      'bg-gray-100', 'text-gray-800',
+      'bg-pink-100', 'text-pink-800',
+      'bg-yellow-100', 'text-yellow-800',
+      'bg-teal-100', 'text-teal-800',
+    ],
+  },
+  plugins: [
+    forms,
+    flowbite
+  ],
+}
+
+
 ```
 
 ## Compte de Test
