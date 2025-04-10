@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
-import api from '../axios';
+import { api } from '../axios';
 import { useRouter, useRoute } from "vue-router";
 import { jwtDecode } from 'jwt-decode';
 export const useAuthStore = defineStore('auth', () => {

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { useAuthStore } from "../src/stores/auth";
 // Configurer l'URL de base
-const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL,
+export const api = axios.create({
+    baseURL: "",
 });
 // interceptor pour gérer les token
 api.interceptors.request.use(async (config) => {
@@ -28,4 +28,6 @@ api.interceptors.request.use(async (config) => {
 }, (error) => {
     return Promise.reject(error);
 });
-export default api;
+export const setApiBaseURL = (url) => {
+    api.defaults.baseURL = url;
+};

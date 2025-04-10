@@ -16,4 +16,4 @@ export * from './types/type.d';
 // Utils
 export * from './utils/role';
 // Axios
-export { default as api } from './axios';
+export { api, setApiBaseURL } from './axios';

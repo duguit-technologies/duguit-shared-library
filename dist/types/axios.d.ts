@@ -1,2 +1,2 @@
-declare const api: import("axios").AxiosInstance;
-export default api;
+export declare const api: import("axios").AxiosInstance;
+export declare const setApiBaseURL: (url: string) => void;

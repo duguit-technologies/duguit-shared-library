@@ -1,18 +1,18 @@
-import { ref as j, defineComponent as Le, createElementBlock as U, openBlock as F, Fragment as ct, renderList as ut, unref as fe, normalizeClass as Se, createElementVNode as N, createCommentVNode as X, toDisplayString as ft } from "vue";
+import { ref as j, defineComponent as De, createElementBlock as U, openBlock as B, Fragment as ct, renderList as ut, unref as fe, normalizeClass as Se, createElementVNode as N, createCommentVNode as X, toDisplayString as ft } from "vue";
 import { defineStore as te } from "pinia";
 import { useRouter as dt, useRoute as pt } from "vue-router";
-const M = j([]);
+const $ = j([]);
 function ht() {
   const e = (n, r) => {
     const s = Date.now();
-    M.value.push({ id: s, type: n, message: r }), console.log("Toast : " + M.value), setTimeout(() => {
+    $.value.push({ id: s, type: n, message: r }), console.log("Toast : " + $.value), setTimeout(() => {
       t(s);
     }, 5e3);
   }, t = (n) => {
-    M.value = M.value.filter((r) => r.id !== n);
+    $.value = $.value.filter((r) => r.id !== n);
   };
   return {
-    toasts: M,
+    toasts: $,
     createToast: e,
     removeToast: t
   };
@@ -38,7 +38,7 @@ const mt = {
   xmlns: "http://www.w3.org/2000/svg",
   fill: "currentColor",
   viewBox: "0 0 20 20"
-}, yt = { class: "text-sm font-normal" }, _t = ["onClick"], fr = /* @__PURE__ */ Le({
+}, yt = { class: "text-sm font-normal" }, _t = ["onClick"], fr = /* @__PURE__ */ De({
   __name: "Toast",
   setup(e) {
     const { toasts: t, removeToast: n } = ht(), r = (o) => {
@@ -64,21 +64,21 @@ const mt = {
           return "";
       }
     };
-    return (o, i) => (F(), U("div", mt, [
-      (F(!0), U(ct, null, ut(fe(t), (l) => (F(), U("div", {
+    return (o, i) => (B(), U("div", mt, [
+      (B(!0), U(ct, null, ut(fe(t), (l) => (B(), U("div", {
         key: l.id,
         class: Se([s(l.type), "flex items-center gap-3 w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"])
       }, [
         N("div", {
           class: Se([r(l.type), "inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg"])
         }, [
-          l.type === "success" ? (F(), U("svg", gt, i[0] || (i[0] = [
+          l.type === "success" ? (B(), U("svg", gt, i[0] || (i[0] = [
             N("path", { d: "M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" }, null, -1)
           ]))) : X("", !0),
-          l.type === "danger" ? (F(), U("svg", bt, i[1] || (i[1] = [
+          l.type === "danger" ? (B(), U("svg", bt, i[1] || (i[1] = [
             N("path", { d: "M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z" }, null, -1)
           ]))) : X("", !0),
-          l.type === "warning" ? (F(), U("svg", wt, i[2] || (i[2] = [
+          l.type === "warning" ? (B(), U("svg", wt, i[2] || (i[2] = [
             N("path", { d: "M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z" }, null, -1)
           ]))) : X("", !0)
         ], 2),
@@ -117,11 +117,11 @@ const mt = {
 }), St = {
   key: 0,
   class: "loader"
-}, xt = /* @__PURE__ */ Le({
+}, xt = /* @__PURE__ */ De({
   __name: "Spinner",
   setup(e) {
     const t = Et();
-    return (n, r) => fe(t).isVisible ? (F(), U("span", St)) : X("", !0);
+    return (n, r) => fe(t).isVisible ? (B(), U("span", St)) : X("", !0);
   }
 }), Rt = (e, t) => {
   const n = e.__vccOpts || e;
@@ -142,7 +142,7 @@ function Ie(e, t) {
 const { toString: kt } = Object.prototype, { getPrototypeOf: we } = Object, ne = /* @__PURE__ */ ((e) => (t) => {
   const n = kt.call(t);
   return e[n] || (e[n] = n.slice(8, -1).toLowerCase());
-})(/* @__PURE__ */ Object.create(null)), A = (e) => (e = e.toLowerCase(), (t) => ne(t) === e), re = (e) => (t) => typeof t === e, { isArray: I } = Array, J = re("undefined");
+})(/* @__PURE__ */ Object.create(null)), A = (e) => (e = e.toLowerCase(), (t) => ne(t) === e), re = (e) => (t) => typeof t === e, { isArray: q } = Array, J = re("undefined");
 function vt(e) {
   return e !== null && !J(e) && e.constructor !== null && !J(e.constructor) && T(e.constructor.isBuffer) && e.constructor.isBuffer(e);
 }
@@ -156,7 +156,7 @@ const Pt = re("string"), T = re("function"), Me = re("number"), se = (e) => e !=
     return !1;
   const t = we(e);
   return (t === null || t === Object.prototype || Object.getPrototypeOf(t) === null) && !(Symbol.toStringTag in e) && !(Symbol.iterator in e);
-}, Ft = A("Date"), Bt = A("File"), Dt = A("Blob"), Lt = A("FileList"), jt = (e) => se(e) && T(e.pipe), It = (e) => {
+}, Bt = A("Date"), Ft = A("File"), Lt = A("Blob"), Dt = A("FileList"), jt = (e) => se(e) && T(e.pipe), It = (e) => {
   let t;
   return e && (typeof FormData == "function" && e instanceof FormData || T(e.append) && ((t = ne(e)) === "formdata" || // detect form-data instance
   t === "object" && T(e.toString) && e.toString() === "[object FormData]"));
@@ -165,7 +165,7 @@ function V(e, t, { allOwnKeys: n = !1 } = {}) {
   if (e === null || typeof e > "u")
     return;
   let r, s;
-  if (typeof e != "object" && (e = [e]), I(e))
+  if (typeof e != "object" && (e = [e]), q(e))
     for (r = 0, s = e.length; r < s; r++)
       t.call(null, e[r], r, e);
   else {
@@ -184,11 +184,11 @@ function $e(e, t) {
       return s;
   return null;
 }
-const B = typeof globalThis < "u" ? globalThis : typeof self < "u" ? self : typeof window < "u" ? window : global, He = (e) => !J(e) && e !== B;
+const F = typeof globalThis < "u" ? globalThis : typeof self < "u" ? self : typeof window < "u" ? window : global, He = (e) => !J(e) && e !== F;
 function de() {
   const { caseless: e } = He(this) && this || {}, t = {}, n = (r, s) => {
     const o = e && $e(t, s) || s;
-    Z(t[o]) && Z(r) ? t[o] = de(t[o], r) : Z(r) ? t[o] = de({}, r) : I(r) ? t[o] = r.slice() : t[o] = r;
+    Z(t[o]) && Z(r) ? t[o] = de(t[o], r) : Z(r) ? t[o] = de({}, r) : q(r) ? t[o] = r.slice() : t[o] = r;
   };
   for (let r = 0, s = arguments.length; r < s; r++)
     arguments[r] && V(arguments[r], n);
@@ -216,7 +216,7 @@ const Vt = (e, t, n, { allOwnKeys: r } = {}) => (V(t, (s, o) => {
   return r !== -1 && r === n;
 }, Gt = (e) => {
   if (!e) return null;
-  if (I(e)) return e;
+  if (q(e)) return e;
   let t = e.length;
   if (!Me(t)) return null;
   const n = new Array(t);
@@ -268,7 +268,7 @@ const Vt = (e, t, n, { allOwnKeys: r } = {}) => (V(t, (s, o) => {
       n[o] = !0;
     });
   };
-  return I(e) ? r(e) : r(String(e).split(t)), n;
+  return q(e) ? r(e) : r(String(e).split(t)), n;
 }, an = () => {
 }, ln = (e, t) => e != null && Number.isFinite(e = +e) ? e : t;
 function cn(e) {
@@ -281,7 +281,7 @@ const un = (e) => {
         return;
       if (!("toJSON" in r)) {
         t[s] = r;
-        const o = I(r) ? [] : {};
+        const o = q(r) ? [] : {};
         return V(r, (i, l) => {
           const p = n(i, s + 1);
           !J(p) && (o[l] = p);
@@ -291,15 +291,15 @@ const un = (e) => {
     return r;
   };
   return n(e, 0);
-}, fn = A("AsyncFunction"), dn = (e) => e && (se(e) || T(e)) && T(e.then) && T(e.catch), Je = ((e, t) => e ? setImmediate : t ? ((n, r) => (B.addEventListener("message", ({ source: s, data: o }) => {
-  s === B && o === n && r.length && r.shift()();
+}, fn = A("AsyncFunction"), dn = (e) => e && (se(e) || T(e)) && T(e.then) && T(e.catch), Je = ((e, t) => e ? setImmediate : t ? ((n, r) => (F.addEventListener("message", ({ source: s, data: o }) => {
+  s === F && o === n && r.length && r.shift()();
 }, !1), (s) => {
-  r.push(s), B.postMessage(n, "*");
+  r.push(s), F.postMessage(n, "*");
 }))(`axios@${Math.random()}`, []) : (n) => setTimeout(n))(
   typeof setImmediate == "function",
-  T(B.postMessage)
-), pn = typeof queueMicrotask < "u" ? queueMicrotask.bind(B) : typeof process < "u" && process.nextTick || Je, a = {
-  isArray: I,
+  T(F.postMessage)
+), pn = typeof queueMicrotask < "u" ? queueMicrotask.bind(F) : typeof process < "u" && process.nextTick || Je, a = {
+  isArray: q,
   isArrayBuffer: qe,
   isBuffer: vt,
   isFormData: It,
@@ -314,15 +314,15 @@ const un = (e) => {
   isResponse: Ht,
   isHeaders: zt,
   isUndefined: J,
-  isDate: Ft,
-  isFile: Bt,
-  isBlob: Dt,
+  isDate: Bt,
+  isFile: Ft,
+  isBlob: Lt,
   isRegExp: rn,
   isFunction: T,
   isStream: jt,
   isURLSearchParams: qt,
   isTypedArray: Qt,
-  isFileList: Lt,
+  isFileList: Dt,
   forEach: V,
   merge: de,
   extend: Vt,
@@ -347,7 +347,7 @@ const un = (e) => {
   noop: an,
   toFiniteNumber: ln,
   findKey: $e,
-  global: B,
+  global: F,
   isContextDefined: He,
   isSpecCompliantForm: cn,
   toJSONObject: un,
@@ -749,7 +749,7 @@ const vn = a.toObjectSet([
     s = i.indexOf(":"), n = i.substring(0, s).trim().toLowerCase(), r = i.substring(s + 1).trim(), !(!n || t[n] && vn[n]) && (n === "set-cookie" ? t[n] ? t[n].push(r) : t[n] = [r] : t[n] = t[n] ? t[n] + ", " + r : r);
   }), t;
 }, Ae = Symbol("internals");
-function $(e) {
+function H(e) {
   return e && String(e).trim().toLowerCase();
 }
 function G(e) {
@@ -773,10 +773,10 @@ function le(e, t, n, r, s) {
       return r.test(t);
   }
 }
-function Fn(e) {
+function Bn(e) {
   return e.trim().toLowerCase().replace(/([a-z\d])(\w*)/g, (t, n, r) => n.toUpperCase() + r);
 }
-function Bn(e, t) {
+function Fn(e, t) {
   const n = a.toCamelCase(" " + t);
   ["get", "set", "has"].forEach((r) => {
     Object.defineProperty(e, r + n, {
@@ -794,7 +794,7 @@ let C = class {
   set(t, n, r) {
     const s = this;
     function o(l, p, c) {
-      const u = $(p);
+      const u = H(p);
       if (!u)
         throw new Error("header name must be a non-empty string");
       const d = a.findKey(s, u);
@@ -813,7 +813,7 @@ let C = class {
     return this;
   }
   get(t, n) {
-    if (t = $(t), t) {
+    if (t = H(t), t) {
       const r = a.findKey(this, t);
       if (r) {
         const s = this[r];
@@ -830,7 +830,7 @@ let C = class {
     }
   }
   has(t, n) {
-    if (t = $(t), t) {
+    if (t = H(t), t) {
       const r = a.findKey(this, t);
       return !!(r && this[r] !== void 0 && (!n || le(this, this[r], r, n)));
     }
@@ -840,7 +840,7 @@ let C = class {
     const r = this;
     let s = !1;
     function o(i) {
-      if (i = $(i), i) {
+      if (i = H(i), i) {
         const l = a.findKey(r, i);
         l && (!n || le(r, r[l], l, n)) && (delete r[l], s = !0);
       }
@@ -864,7 +864,7 @@ let C = class {
         n[i] = G(s), delete n[o];
         return;
       }
-      const l = t ? Fn(o) : String(o).trim();
+      const l = t ? Bn(o) : String(o).trim();
       l !== o && delete n[o], n[l] = G(s), r[l] = !0;
     }), this;
   }
@@ -899,8 +899,8 @@ let C = class {
       accessors: {}
     }).accessors, s = this.prototype;
     function o(i) {
-      const l = $(i);
-      r[l] || (Bn(s, i), r[l] = !0);
+      const l = H(i);
+      r[l] || (Fn(s, i), r[l] = !0);
     }
     return a.isArray(t) ? t.forEach(o) : o(t), this;
   }
@@ -926,10 +926,10 @@ function ce(e, t) {
 function Ye(e) {
   return !!(e && e.__CANCEL__);
 }
-function q(e, t, n) {
+function M(e, t, n) {
   b.call(this, e ?? "canceled", b.ERR_CANCELED, t, n), this.name = "CanceledError";
 }
-a.inherits(q, b, {
+a.inherits(M, b, {
   __CANCEL__: !0
 });
 function et(e, t, n) {
@@ -942,11 +942,11 @@ function et(e, t, n) {
     n
   ));
 }
-function Dn(e) {
+function Ln(e) {
   const t = /^([-+\w]{1,25})(:?\/\/|:)/.exec(e);
   return t && t[1] || "";
 }
-function Ln(e, t) {
+function Dn(e, t) {
   e = e || 10;
   const n = new Array(e), r = new Array(e);
   let s = 0, o = 0, i;
@@ -976,7 +976,7 @@ function jn(e, t) {
 }
 const Y = (e, t, n = 3) => {
   let r = 0;
-  const s = Ln(50, 250);
+  const s = Dn(50, 250);
   return jn((o) => {
     const i = o.loaded, l = o.lengthComputable ? o.total : void 0, p = i - r, c = s(p), u = i <= l;
     r = i;
@@ -1041,7 +1041,7 @@ function tt(e, t, n) {
   return e && (r || n == !1) ? $n(e, t) : t;
 }
 const ve = (e) => e instanceof C ? { ...e } : e;
-function L(e, t) {
+function D(e, t) {
   t = t || {};
   const n = {};
   function r(c, u, d, w) {
@@ -1106,7 +1106,7 @@ function L(e, t) {
   }), n;
 }
 const nt = (e) => {
-  const t = L({}, e);
+  const t = D({}, e);
   let { data: n, withXSRFToken: r, xsrfHeaderName: s, xsrfCookieName: o, headers: i, auth: l } = t;
   t.headers = i = C.from(i), t.url = Ze(tt(t.baseURL, t.url, t.allowAbsoluteUrls), e.params, e.paramsSerializer), l && i.set(
     "Authorization",
@@ -1174,9 +1174,9 @@ const nt = (e) => {
     }, o === void 0 && i.setContentType(null), "setRequestHeader" in h && a.forEach(i.toJSON(), function(k, R) {
       h.setRequestHeader(R, k);
     }), a.isUndefined(s.withCredentials) || (h.withCredentials = !!s.withCredentials), l && l !== "json" && (h.responseType = s.responseType), c && ([w, f] = Y(c, !0), h.addEventListener("progress", w)), p && h.upload && ([d, m] = Y(p), h.upload.addEventListener("progress", d), h.upload.addEventListener("loadend", m)), (s.cancelToken || s.signal) && (u = (S) => {
-      h && (r(!S || S.type ? new q(null, e, h) : S), h.abort(), h = null);
+      h && (r(!S || S.type ? new M(null, e, h) : S), h.abort(), h = null);
     }, s.cancelToken && s.cancelToken.subscribe(u), s.signal && (s.signal.aborted ? u() : s.signal.addEventListener("abort", u)));
-    const E = Dn(s.url);
+    const E = Ln(s.url);
     if (E && x.protocols.indexOf(E) === -1) {
       r(new b("Unsupported protocol " + E + ":", b.ERR_BAD_REQUEST, e));
       return;
@@ -1191,7 +1191,7 @@ const nt = (e) => {
       if (!s) {
         s = !0, l();
         const u = c instanceof Error ? c : this.reason;
-        r.abort(u instanceof b ? u : new q(u instanceof Error ? u.message : u));
+        r.abort(u instanceof b ? u : new M(u instanceof Error ? u.message : u));
       }
     };
     let i = t && setTimeout(() => {
@@ -1438,9 +1438,9 @@ const Ue = (e) => `- ${e}`, er = (e) => a.isFunction(e) || e === null || e === !
 };
 function ue(e) {
   if (e.cancelToken && e.cancelToken.throwIfRequested(), e.signal && e.signal.aborted)
-    throw new q(null, e);
+    throw new M(null, e);
 }
-function Fe(e) {
+function Be(e) {
   return ue(e), e.headers = C.from(e.headers), e.data = ce.call(
     e,
     e.transformRequest
@@ -1464,7 +1464,7 @@ const it = "1.8.4", ae = {};
     return typeof r === e || "a" + (t < 1 ? "n " : " ") + e;
   };
 });
-const Be = {};
+const Fe = {};
 ae.transitional = function(t, n, r) {
   function s(o, i) {
     return "[Axios v" + it + "] Transitional option '" + o + "'" + i + (r ? ". " + r : "");
@@ -1475,7 +1475,7 @@ ae.transitional = function(t, n, r) {
         s(i, " has been removed" + (n ? " in " + n : "")),
         b.ERR_DEPRECATED
       );
-    return n && !Be[i] && (Be[i] = !0, console.warn(
+    return n && !Fe[i] && (Fe[i] = !0, console.warn(
       s(
         i,
         " has been deprecated since v" + n + " and will be removed in the near future"
@@ -1507,7 +1507,7 @@ const Q = {
   assertOptions: tr,
   validators: ae
 }, O = Q.validators;
-let D = class {
+let L = class {
   constructor(t) {
     this.defaults = t, this.interceptors = {
       request: new Te(),
@@ -1540,7 +1540,7 @@ let D = class {
     }
   }
   _request(t, n) {
-    typeof t == "string" ? (n = n || {}, n.url = t) : n = t || {}, n = L(this.defaults, n);
+    typeof t == "string" ? (n = n || {}, n.url = t) : n = t || {}, n = D(this.defaults, n);
     const { transitional: r, paramsSerializer: s, headers: o } = n;
     r !== void 0 && Q.assertOptions(r, {
       silentJSONParsing: O.transitional(O.boolean),
@@ -1576,7 +1576,7 @@ let D = class {
     });
     let u, d = 0, w;
     if (!p) {
-      const f = [Fe.bind(this), void 0];
+      const f = [Be.bind(this), void 0];
       for (f.unshift.apply(f, l), f.push.apply(f, c), w = f.length, u = Promise.resolve(n); d < w; )
         u = u.then(f[d++], f[d++]);
       return u;
@@ -1593,7 +1593,7 @@ let D = class {
       }
     }
     try {
-      u = Fe.call(this, m);
+      u = Be.call(this, m);
     } catch (f) {
       return Promise.reject(f);
     }
@@ -1602,14 +1602,14 @@ let D = class {
     return u;
   }
   getUri(t) {
-    t = L(this.defaults, t);
+    t = D(this.defaults, t);
     const n = tt(t.baseURL, t.url, t.allowAbsoluteUrls);
     return Ze(n, t.params, t.paramsSerializer);
   }
 };
 a.forEach(["delete", "get", "head", "options"], function(t) {
-  D.prototype[t] = function(n, r) {
-    return this.request(L(r || {}, {
+  L.prototype[t] = function(n, r) {
+    return this.request(D(r || {}, {
       method: t,
       url: n,
       data: (r || {}).data
@@ -1619,7 +1619,7 @@ a.forEach(["delete", "get", "head", "options"], function(t) {
 a.forEach(["post", "put", "patch"], function(t) {
   function n(r) {
     return function(o, i, l) {
-      return this.request(L(l || {}, {
+      return this.request(D(l || {}, {
         method: t,
         headers: r ? {
           "Content-Type": "multipart/form-data"
@@ -1629,7 +1629,7 @@ a.forEach(["post", "put", "patch"], function(t) {
       }));
     };
   }
-  D.prototype[t] = n(), D.prototype[t + "Form"] = n(!0);
+  L.prototype[t] = n(), L.prototype[t + "Form"] = n(!0);
 });
 let nr = class at {
   constructor(t) {
@@ -1655,7 +1655,7 @@ let nr = class at {
         r.unsubscribe(o);
       }, i;
     }, t(function(o, i, l) {
-      r.reason || (r.reason = new q(o, i, l), n(r.reason));
+      r.reason || (r.reason = new M(o, i, l), n(r.reason));
     });
   }
   /**
@@ -1781,14 +1781,14 @@ Object.entries(be).forEach(([e, t]) => {
   be[t] = e;
 });
 function lt(e) {
-  const t = new D(e), n = Ie(D.prototype.request, t);
-  return a.extend(n, D.prototype, t, { allOwnKeys: !0 }), a.extend(n, t, null, { allOwnKeys: !0 }), n.create = function(s) {
-    return lt(L(e, s));
+  const t = new L(e), n = Ie(L.prototype.request, t);
+  return a.extend(n, L.prototype, t, { allOwnKeys: !0 }), a.extend(n, t, null, { allOwnKeys: !0 }), n.create = function(s) {
+    return lt(D(e, s));
   }, n;
 }
 const _ = lt(W);
-_.Axios = D;
-_.CanceledError = q;
+_.Axios = L;
+_.CanceledError = M;
 _.CancelToken = nr;
 _.isCancel = Ye;
 _.VERSION = it;
@@ -1800,7 +1800,7 @@ _.all = function(t) {
 };
 _.spread = rr;
 _.isAxiosError = sr;
-_.mergeConfig = L;
+_.mergeConfig = D;
 _.AxiosHeaders = C;
 _.formToJSON = (e) => Qe(a.isHTMLForm(e) ? new FormData(e) : e);
 _.getAdapter = ot.getAdapter;
@@ -1823,10 +1823,10 @@ const {
   formToJSON: Or,
   getAdapter: kr,
   mergeConfig: vr
-} = _, H = _.create({
-  baseURL: void 0
+} = _, I = _.create({
+  baseURL: ""
 });
-H.interceptors.request.use(async (e) => {
+I.interceptors.request.use(async (e) => {
   if (e.url !== "/login/refresh") {
     const t = ar(), n = localStorage.getItem("access_token");
     if (n && !t.isTokenExpired(n))
@@ -1839,6 +1839,9 @@ H.interceptors.request.use(async (e) => {
   }
   return e;
 }, (e) => Promise.reject(e));
+const Nr = (e) => {
+  I.defaults.baseURL = e;
+};
 class z extends Error {
 }
 z.prototype.name = "InvalidTokenError";
@@ -1868,7 +1871,7 @@ function ir(e) {
     return atob(t);
   }
 }
-function De(e, t) {
+function Le(e, t) {
   if (typeof e != "string")
     throw new z("Invalid token specified: must be a string");
   t || (t = {});
@@ -1896,7 +1899,7 @@ const ar = te("auth", () => {
     try {
       if (t.value && n.value)
         try {
-          (await H.post("/login/login_by_token", {}, {
+          (await I.post("/login/login_by_token", {}, {
             headers: {
               "Content-Type": "application/json"
             }
@@ -1924,10 +1927,10 @@ Redirection vers /interventions`), await e.push("/interventions"));
         return console.log("Impossible de rafraîchir le token, déconnexion..."), await d(), null;
       if (!t.value)
         return console.log("Aucun token valide disponible, déconnexion..."), await d(), null;
-      const m = De(t.value);
+      const m = Le(t.value);
       if (!m || !m.user_id)
         return console.log("Token invalide, déconnexion..."), await d(), null;
-      const f = await H.get("/user/show_user_ById", {
+      const f = await I.get("/user/show_user_ById", {
         params: { user_id: m.user_id },
         headers: { Authorization: `Bearer ${t.value}` }
       });
@@ -1937,7 +1940,7 @@ Redirection vers /interventions`), await e.push("/interventions"));
     }
   }, p = (m) => {
     try {
-      const f = De(m), g = Date.now() / 1e3;
+      const f = Le(m), g = Date.now() / 1e3;
       return f.exp < g;
     } catch (f) {
       return console.log("Erreur :", f.message || f), !0;
@@ -1947,7 +1950,7 @@ Redirection vers /interventions`), await e.push("/interventions"));
     try {
       if (!n.value)
         throw new Error("Refresh token manquant");
-      const m = await H.post("/login/refresh", {}, {
+      const m = await I.post("/login/refresh", {}, {
         headers: { Authorization: `Bearer ${n.value}` }
       });
       if (m.data.access_token) {
@@ -1963,7 +1966,7 @@ Redirection vers /interventions`), await e.push("/interventions"));
       return console.log("Aucun utilisateur en mémoire, impossible de récupérer les privilèges."), null;
     try {
       if (r.value) {
-        const m = await H.get(`/role/get_highest_privilege_for_each_action_based_on_user_role/${r.value.id}`, {
+        const m = await I.get(`/role/get_highest_privilege_for_each_action_based_on_user_role/${r.value.id}`, {
           headers: { Authorization: `Bearer ${t.value}` }
         });
         return m.data && (r.value.privilege = m.data, sessionStorage.setItem("privileges", JSON.stringify(m.data))), r.value.privilege || null;
@@ -1993,7 +1996,7 @@ Redirection vers /interventions`), await e.push("/interventions"));
     },
     logout: d
   };
-}), Nr = te("color", {
+}), Pr = te("color", {
   state: () => ({}),
   actions: {
     getColorClasses(e) {
@@ -2111,7 +2114,7 @@ Redirection vers /interventions`), await e.push("/interventions"));
       }
     }
   }
-}), Pr = te("dateFormatter", () => {
+}), Ur = te("dateFormatter", () => {
   function e(t) {
     const n = new Date(t);
     if (isNaN(n.getTime()))
@@ -2134,7 +2137,7 @@ Redirection vers /interventions`), await e.push("/interventions"));
   }
   return { formatDate: e };
 });
-function Ur() {
+function Br() {
   return { ...je.role };
 }
 function Fr() {
@@ -2143,13 +2146,14 @@ function Fr() {
 export {
   dr as Spinner,
   fr as Toast,
-  H as api,
+  I as api,
   Fr as createDefaultPrivilege,
-  Ur as createDefaultRole,
+  Br as createDefaultRole,
   je as role,
+  Nr as setApiBaseURL,
   ar as useAuthStore,
-  Nr as useColorStore,
-  Pr as useDateFormatter,
+  Pr as useColorStore,
+  Ur as useDateFormatter,
   Et as useSpinnerStore,
   ht as useToast
 };

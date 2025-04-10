@@ -9,4 +9,4 @@ export * from './stores/dateFormatter';
 export * from './stores/spinnerStore';
 export * from './types/type.d';
 export * from './utils/role';
-export { default as api } from './axios';
+export { api, setApiBaseURL } from './axios';
