@@ -6,6 +6,7 @@
   "main": "./dist/duguit-shared-library.umd.cjs",
   "module": "./dist/duguit-shared-library.js",
   "types": "./dist/types/index.d.ts",
+  "style": "./dist/duguit-shared-library.css",
   "scripts": {
     "dev": "vite --host=0.0.0.0 --port=3002",
     "test": "vitest",
