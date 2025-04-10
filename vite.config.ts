@@ -15,7 +15,8 @@ export default defineConfig({
     lib: {
       entry: 'src/index.ts',
       name: 'DuguitSharedLibrary',
-      fileName: 'duguit-shared-library',
+      fileName: (format) =>
+          format === 'es' ? 'duguit-shared-library.js' : 'duguit-shared-library.umd.cjs'
     },
     rollupOptions: {
       // éventuellement external si tu veux exclure Vue, etc.

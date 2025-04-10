@@ -1,9 +1,9 @@
 {
   "name": "duguit-shared-library",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": true,
   "type": "module",
-  "main": "./dist/src/index.js",
+  "main": "./dist/duguit-shared-library.umd.cjs",
   "module": "./dist/duguit-shared-library.js",
   "types": "./dist/types/index.d.ts",
   "scripts": {
