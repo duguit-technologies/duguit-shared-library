@@ -1,17 +1,18 @@
 {
   "name": "duguit-shared-library",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "type": "module",
   "main": "./dist/duguit-shared-library.umd.cjs",
   "module": "dist/duguit-shared-library.js",
+  "types": "./dist/types/index.d.ts",
   "scripts": {
     "dev": "vite --host=0.0.0.0 --port=3002",
     "test": "vitest",
-    "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
-    "build-only": "vite build",
-    "type-check": "vue-tsc --build --force"
+    "build": "run-p type-check \"build-only {@}\" --",
+    "type-check": "vue-tsc --build tsconfig.lib.json --force",
+    "build-only": "vite build"
   },
   "dependencies": {
     "axios": "^1.7.7",

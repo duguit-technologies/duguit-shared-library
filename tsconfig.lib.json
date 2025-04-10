@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "noEmit": false,                   // On veut bien émettre les fichiers
+    "declaration": true,               // Générer les .d.ts
+    "declarationDir": "./dist/types",  // Où placer les .d.ts
+    "outDir": "./dist",                // Dossier de sortie pour le JS émis
+    "composite": true,                 // Pour les builds incrémentaux (optionnel)
+    "resolveJsonModule": true,    // Active la résolution des imports JSON
+    "esModuleInterop": true
+  },
+  "include": [
+    "src/**/*",
+    "vite-env.d.ts",
+    "src/**/*.json"
+  ]
+}
