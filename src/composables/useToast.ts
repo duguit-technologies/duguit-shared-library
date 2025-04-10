@@ -9,6 +9,7 @@ export function useToast() {
     const createToast = (type: string, message: string) => {
         const id = Date.now();
         toasts.value.push({ id, type, message });
+        console.log('Toast : ' + toasts.value);
 
         // Retirer automatiquement le toast après 5 secondes
         setTimeout(() => {
