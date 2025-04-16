@@ -1835,53 +1835,57 @@ nr.prototype.name = "InvalidTokenError";
 const Or = ee("auth", () => {
   const e = ut(), t = G(null);
   G(!1);
-  const n = async () => {
-    var f;
+  const n = "http://app.duguit.dev:5173", r = async () => {
+    var c;
     try {
-      const c = await j.post("/login/login_by_token");
-      c.data.user_detail && (t.value = c.data.user_detail, await o(), await e.push("/interventions"));
-    } catch (c) {
-      ((f = c.response) == null ? void 0 : f.status) === 401 ? await s() ? await n() : await i() : (console.error("Erreur loginByToken :", c), await i());
-    }
-  }, r = async () => {
-    var f;
-    try {
-      const c = await j.get("/user/me");
-      return c != null && c.data ? (t.value = c.data, await o(), t.value) : (console.warn("Utilisateur introuvable"), await i(), null);
-    } catch (c) {
-      return ((f = c.response) == null ? void 0 : f.status) === 401 && await s() ? await r() : (console.error("Erreur récupération utilisateur :", c), await i(), null);
+      const u = await j.post("/login/login_by_token");
+      u.data.user_detail && (t.value = u.data.user_detail, await i(), await e.push("/interventions"));
+    } catch (u) {
+      ((c = u.response) == null ? void 0 : c.status) === 401 ? await o() ? await r() : await l() : (console.error("Erreur loginByToken :", u), await l());
     }
   }, s = async () => {
+    var c;
     try {
-      return await j.post("/login/refresh"), !0;
-    } catch (f) {
-      return console.error("Impossible de rafraîchir le token", f), !1;
+      const u = await j.get("/user/me");
+      return u != null && u.data ? (t.value = u.data, await i(), t.value) : (console.warn("Utilisateur introuvable"), await l(), null);
+    } catch (u) {
+      return ((c = u.response) == null ? void 0 : c.status) === 401 && await o() ? await s() : (console.error("Erreur récupération utilisateur :", u), await l(), null);
     }
   }, o = async () => {
+    try {
+      return await j.post("/login/refresh"), !0;
+    } catch (c) {
+      return console.error("Impossible de rafraîchir le token", c), !1;
+    }
+  }, i = async () => {
     if (!t.value) {
       console.log("Aucun utilisateur chargé.");
       return;
     }
     try {
-      const f = await j.get(`/role/get_highest_privilege_for_each_action_based_on_user_role/${t.value.id}`);
-      t.value.privilege = f.data, sessionStorage.setItem("privileges", JSON.stringify(f.data));
-    } catch (f) {
-      console.error("Erreur récupération privilèges :", f);
+      const c = await j.get(`/role/get_highest_privilege_for_each_action_based_on_user_role/${t.value.id}`);
+      t.value.privilege = c.data, sessionStorage.setItem("privileges", JSON.stringify(c.data));
+    } catch (c) {
+      console.error("Erreur récupération privilèges :", c);
     }
-  }, i = async () => {
-    t.value = null, sessionStorage.removeItem("privileges"), await j.post("/login/logout");
+  }, l = async () => {
+    try {
+      t.value = null, sessionStorage.removeItem("privileges"), (await j.post("/login/logout")).status === 200 || console.warn("Logout échoué côté serveur, mais on continue le reset local."), window.location.href = n;
+    } catch (c) {
+      console.error("Erreur lors du logout :", c), window.location.href = n;
+    }
   };
   return {
     // access_token,
     current_user: t,
-    loginByToken: n,
-    fetchCurrentLoggedInUser: r,
-    refreshAccessToken: s,
+    loginByToken: r,
+    fetchCurrentLoggedInUser: s,
+    refreshAccessToken: o,
     // isTokenExpired,
     // setTokens,
-    getUserHighestRolePermission: o,
-    getCurrentUser: async () => t.value ? (t.value.privilege || await o(), t.value) : await r(),
-    logout: i
+    getUserHighestRolePermission: i,
+    getCurrentUser: async () => t.value ? (t.value.privilege || await i(), t.value) : await s(),
+    logout: l
   };
 }), Ar = ee("color", {
   state: () => ({}),

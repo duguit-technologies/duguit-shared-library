@@ -9,6 +9,7 @@ export const useAuthStore = defineStore('auth', () => {
     // const refresh_token = ref<string | null>(localStorage.getItem('refresh_token'));
     const current_user = ref(null);
     const hasTriedRefreshToken = ref(false);
+    const rootUrl = "http://app.duguit.dev:5173";
     // Fonction pour mettre à jour les tokens
     // const setTokens = (newAccessToken: string, newRefreshToken: string) => {
     //     access_token.value = newAccessToken;
@@ -92,9 +93,23 @@ export const useAuthStore = defineStore('auth', () => {
         }
     };
     const logout = async () => {
-        current_user.value = null;
-        sessionStorage.removeItem('privileges');
-        await api.post('/login/logout');
+        try {
+            current_user.value = null;
+            sessionStorage.removeItem('privileges');
+            const response = await api.post('/login/logout');
+            if (response.status === 200) {
+                window.location.href = rootUrl;
+            }
+            else {
+                console.warn("Logout échoué côté serveur, mais on continue le reset local.");
+                window.location.href = rootUrl;
+            }
+        }
+        catch (error) {
+            console.error("Erreur lors du logout :", error);
+            // On redirige quand même, car on a déjà effacé les infos locales
+            window.location.href = rootUrl;
+        }
     };
     const getCurrentUser = async () => {
         if (!current_user.value) {
