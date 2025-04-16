@@ -33,7 +33,8 @@ export const useAuthStore = defineStore('auth', () => {
                 await router.push('/interventions');
             }
         } catch (e: any) {
-            if (e.response?.status === 401) {
+            if (!hasTriedRefreshToken.value) {
+                hasTriedRefreshToken.value = true;
                 const refreshed = await refreshAccessToken();
                 if (refreshed) {
                     await loginByToken();
@@ -41,7 +42,7 @@ export const useAuthStore = defineStore('auth', () => {
                     await logout();
                 }
             } else {
-                console.error('Erreur loginByToken :', e);
+                console.warn("Échec de rafraîchissement déjà tenté. Déconnexion.");
                 await logout();
             }
         }
