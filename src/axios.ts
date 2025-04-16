@@ -4,32 +4,33 @@ import {useAuthStore} from "../src/stores/auth";
 // Configurer l'URL de base
 export const api = axios.create({
     baseURL: "",
+    withCredentials: true
 });
 
 // interceptor pour gérer les token
-api.interceptors.request.use(async (config) => {
-    if (config.url !== '/login/refresh') {
-        const auth =useAuthStore();
-        const local_token = localStorage.getItem('access_token');
-        if (local_token && !auth.isTokenExpired(local_token)) {
-            config.headers.Authorization = `Bearer ${local_token}`;
-        }
-        else if(local_token && auth.isTokenExpired(local_token)) {
-            const newAccessToken = await auth.refreshAccessToken();
-            if (!newAccessToken) {
-                console.log('Impossible de rafraîchir le token, déconnexion...');
-                await auth.logout();
-            }
-            config.headers.Authorization = `Bearer ${newAccessToken}`;
-        }
-        else {
-            await auth.logout();
-        }
-    }
-    return config;
-}, (error) => {
-    return Promise.reject(error);
-});
+// api.interceptors.request.use(async (config) => {
+//     if (config.url !== '/login/refresh') {
+//         const auth = useAuthStore();
+//         const local_token = localStorage.getItem('access_token');
+//         if (local_token && !auth.isTokenExpired(local_token)) {
+//             config.headers.Authorization = `Bearer ${local_token}`;
+//         }
+//         else if(local_token && auth.isTokenExpired(local_token)) {
+//             const newAccessToken = await auth.refreshAccessToken();
+//             if (!newAccessToken) {
+//                 console.log('Impossible de rafraîchir le token, déconnexion...');
+//                 await auth.logout();
+//             }
+//             config.headers.Authorization = `Bearer ${newAccessToken}`;
+//         }
+//         else {
+//             await auth.logout();
+//         }
+//     }
+//     return config;
+// }, (error) => {
+//     return Promise.reject(error);
+// });
 
 export const setApiBaseURL = (url : string) => {
     api.defaults.baseURL = url;
