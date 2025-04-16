@@ -12,6 +12,7 @@ export default defineConfig({
     vueJsx(),
   ],
   build: {
+    emptyOutDir: false,
     lib: {
       entry: 'src/index.ts',
       name: 'DuguitSharedLibrary',
