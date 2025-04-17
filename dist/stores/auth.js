@@ -297,6 +297,7 @@ export const useAuthStore = defineStore('auth', () => {
     return {
         // access_token,
         current_user,
+        setRootUrl,
         loginByToken,
         fetchCurrentLoggedInUser,
         refreshAccessToken,

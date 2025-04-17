@@ -7,6 +7,7 @@ export declare const useAuthStore: import("pinia").StoreDefinition<"auth", Pick<
         [x: string]: any;
         id?: number | undefined;
     } | null>;
+    setRootUrl: (newUrl: string) => Promise<void>;
     loginByToken: () => Promise<void>;
     fetchCurrentLoggedInUser: () => Promise<User | null>;
     refreshAccessToken: () => Promise<boolean>;
@@ -21,6 +22,7 @@ export declare const useAuthStore: import("pinia").StoreDefinition<"auth", Pick<
         [x: string]: any;
         id?: number | undefined;
     } | null>;
+    setRootUrl: (newUrl: string) => Promise<void>;
     loginByToken: () => Promise<void>;
     fetchCurrentLoggedInUser: () => Promise<User | null>;
     refreshAccessToken: () => Promise<boolean>;
@@ -35,10 +37,11 @@ export declare const useAuthStore: import("pinia").StoreDefinition<"auth", Pick<
         [x: string]: any;
         id?: number | undefined;
     } | null>;
+    setRootUrl: (newUrl: string) => Promise<void>;
     loginByToken: () => Promise<void>;
     fetchCurrentLoggedInUser: () => Promise<User | null>;
     refreshAccessToken: () => Promise<boolean>;
     getUserHighestRolePermission: () => Promise<void>;
     getCurrentUser: () => Promise<User | null>;
     logout: () => Promise<void>;
-}, "loginByToken" | "fetchCurrentLoggedInUser" | "refreshAccessToken" | "getUserHighestRolePermission" | "getCurrentUser" | "logout">>;
+}, "setRootUrl" | "loginByToken" | "fetchCurrentLoggedInUser" | "refreshAccessToken" | "getUserHighestRolePermission" | "getCurrentUser" | "logout">>;
