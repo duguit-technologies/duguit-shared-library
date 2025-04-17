@@ -1833,7 +1833,9 @@ class nr extends Error {
 }
 nr.prototype.name = "InvalidTokenError";
 const Or = ee("auth", () => {
-  const e = ut(), t = G(null), n = G(!1), r = "http://app.duguit.dev:5173", s = async () => {
+  const e = ut(), t = G(null), n = G(!1);
+  let r = "http://app.duguit.dev:5173";
+  const s = async () => {
     try {
       const c = await j.post("/login/login_by_token");
       c.data.user_detail && (t.value = c.data.user_detail, await l(), await e.push("/interventions"));

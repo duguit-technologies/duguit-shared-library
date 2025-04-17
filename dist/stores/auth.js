@@ -9,7 +9,10 @@ export const useAuthStore = defineStore('auth', () => {
     // const refresh_token = ref<string | null>(localStorage.getItem('refresh_token'));
     const current_user = ref(null);
     const hasTriedRefreshToken = ref(false);
-    const rootUrl = "http://app.duguit.dev:5173";
+    let rootUrl = "http://app.duguit.dev:5173";
+    const setRootUrl = async (newUrl) => {
+        rootUrl = newUrl;
+    };
     // Fonction pour mettre à jour les tokens
     // const setTokens = (newAccessToken: string, newRefreshToken: string) => {
     //     access_token.value = newAccessToken;
