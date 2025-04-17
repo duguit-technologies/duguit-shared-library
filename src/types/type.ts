@@ -184,7 +184,7 @@ type Dossier = {
     lst_technicien?: UserResponse[]; // Assuming UserResponse is defined elsewhere
 };
 
-export {
+export type {
     User,
     DecodedToken,
     Role,

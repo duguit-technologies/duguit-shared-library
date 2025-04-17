@@ -12,7 +12,7 @@ export * from './stores/color';
 export * from './stores/dateFormatter';
 export * from './stores/spinnerStore';
 // Types
-export * from './types/type.d';
+export * from './types/type';
 // Utils
 export * from './utils/role';
 // Axios

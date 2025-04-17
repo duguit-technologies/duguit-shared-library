@@ -7,6 +7,6 @@ export * from './stores/auth';
 export * from './stores/color';
 export * from './stores/dateFormatter';
 export * from './stores/spinnerStore';
-export * from './types/type.d';
+export * from './types/type';
 export * from './utils/role';
 export { api, setApiBaseURL } from './axios';
