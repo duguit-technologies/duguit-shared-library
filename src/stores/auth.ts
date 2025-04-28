@@ -95,6 +95,8 @@ export const useAuthStore = defineStore('auth', () => {
             });
 
             if (response?.data) {
+                console.log("fetch current loggedin");
+                console.log(response.data);
                 current_user.value = response.data;
                 isAuthenticated.value = true;
                 await getUserHighestRolePermission();
@@ -177,6 +179,7 @@ export const useAuthStore = defineStore('auth', () => {
 
     const getCurrentUser = async (): Promise<User | null> => {
         if (!current_user.value) {
+            console.log('Aucun utilisateur, fetchCurrentLoggedIn');
             return await fetchCurrentLoggedInUser();
         }
         if (!current_user.value.privilege) {
