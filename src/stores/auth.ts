@@ -1,4 +1,3 @@
-// auth.store.ts
 import { ref } from 'vue';
 import { defineStore } from 'pinia';
 import { api } from '../axios';
@@ -19,9 +18,36 @@ export const useAuthStore = defineStore('auth', () => {
     };
 
     // Fonction pour savoir si l'utilisateur est authentifié
-    // (vérifie seulement l'état du store, les cookies sont gérés par le backend)
     const checkAuthenticated = (): boolean => {
         return isAuthenticated.value;
+    };
+
+    // Vérifie l'authentification par cookie
+    const checkAuthByCookie = async (): Promise<boolean> => {
+        try {
+            const response = await api.post('/login/login_by_token', {}, {
+                withCredentials: true // Important pour envoyer les cookies
+            });
+
+            if (response.status === 200 && response.data.user_detail) {
+                current_user.value = response.data.user_detail;
+                isAuthenticated.value = true;
+                await getUserHighestRolePermission();
+                return true;
+            }
+            return false;
+        } catch (error) {
+            console.error('Erreur lors de la vérification par cookie:', error);
+            // Si échec, on essaie de rafraîchir l'access token
+            if (!hasTriedRefreshToken.value) {
+                hasTriedRefreshToken.value = true;
+                const refreshed = await refreshAccessToken();
+                if (refreshed) {
+                    return await checkAuthByCookie();
+                }
+            }
+            return false;
+        }
     };
 
     // Login - envoie les identifiants et le backend définira les cookies
@@ -56,36 +82,8 @@ export const useAuthStore = defineStore('auth', () => {
         }
     };
 
-    const loginByToken = async () : Promise<boolean> => {
-        try {
-            const response = await api.post('/login/login_by_token', {}, {
-                withCredentials: true
-            });
-
-            if (response.data.user_detail) {
-                current_user.value = response.data.user_detail;
-                isAuthenticated.value = true;
-                await getUserHighestRolePermission();
-                await router.push('/interventions');
-                return true;
-            }
-            return false;
-        } catch (e: any) {
-            if (!hasTriedRefreshToken.value) {
-                hasTriedRefreshToken.value = true;
-                const refreshed = await refreshAccessToken();
-                if (refreshed) {
-                    return await loginByToken();
-                } else {
-                    await logout();
-                    return false;
-                }
-            } else {
-                console.warn("Échec de rafraîchissement déjà tenté. Déconnexion.");
-                await logout();
-                return false;
-            }
-        }
+    const loginByToken = async (): Promise<boolean> => {
+        return await checkAuthByCookie();
     };
 
     const fetchCurrentLoggedInUser = async (): Promise<User | null> => {
@@ -156,6 +154,7 @@ export const useAuthStore = defineStore('auth', () => {
             // Réinitialiser l'état local
             current_user.value = null;
             isAuthenticated.value = false;
+            hasTriedRefreshToken.value = false;
             sessionStorage.removeItem('privileges');
             sessionStorage.removeItem('user_id');
 
@@ -178,14 +177,22 @@ export const useAuthStore = defineStore('auth', () => {
     };
 
     const getCurrentUser = async (): Promise<User | null> => {
-        if (!current_user.value) {
-            console.log('Aucun utilisateur, fetchCurrentLoggedIn');
-            return await fetchCurrentLoggedInUser();
+        // Si on est déjà connecté, on retourne l'utilisateur
+        if (checkAuthenticated() && current_user.value) {
+            if (!current_user.value.privilege) {
+                await getUserHighestRolePermission();
+            }
+            return current_user.value;
         }
-        if (!current_user.value.privilege) {
-            await getUserHighestRolePermission();
+
+        // Sinon on essaie d'abord de s'authentifier par cookie
+        const cookieAuth = await checkAuthByCookie();
+        if (cookieAuth) {
+            return current_user.value;
         }
-        return current_user.value;
+
+        // Si ça échoue, on essaie de récupérer l'utilisateur normalement
+        return await fetchCurrentLoggedInUser();
     };
 
     return {
@@ -199,6 +206,7 @@ export const useAuthStore = defineStore('auth', () => {
         getUserHighestRolePermission,
         getCurrentUser,
         logout,
-        checkAuthenticated
+        checkAuthenticated,
+        checkAuthByCookie
     };
 });
