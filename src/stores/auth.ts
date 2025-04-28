@@ -69,8 +69,8 @@ export const useAuthStore = defineStore('auth', () => {
                 current_user.value = response.data.user_detail || null;
 
                 // Stockage éventuel des infos non sensibles en sessionStorage
-                if (current_user.value) {
-                    sessionStorage.setItem('user_id', current_user.value.user_id.toString());
+                if (response.data.user_id) {
+                    sessionStorage.setItem('user_id', response.data.user_id.toString());
                 }
 
                 return true;

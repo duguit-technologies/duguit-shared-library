@@ -1,4 +1,4 @@
-import { ref as $, defineComponent as Le, createElementBlock as U, openBlock as F, Fragment as at, renderList as lt, unref as ue, normalizeClass as Ee, createElementVNode as k, createCommentVNode as K, toDisplayString as ct } from "vue";
+import { ref as $, defineComponent as Le, createElementBlock as U, openBlock as F, Fragment as at, renderList as lt, unref as ue, normalizeClass as Ee, createElementVNode as P, createCommentVNode as K, toDisplayString as ct } from "vue";
 import { defineStore as ee } from "pinia";
 import { useRouter as ut } from "vue-router";
 const I = $([]);
@@ -69,31 +69,31 @@ const dt = {
         key: l.id,
         class: Ee([s(l.type), "flex items-center gap-3 w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800"])
       }, [
-        k("div", {
+        P("div", {
           class: Ee([r(l.type), "inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg"])
         }, [
           l.type === "success" ? (F(), U("svg", pt, i[0] || (i[0] = [
-            k("path", { d: "M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" }, null, -1)
+            P("path", { d: "M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" }, null, -1)
           ]))) : K("", !0),
           l.type === "danger" ? (F(), U("svg", ht, i[1] || (i[1] = [
-            k("path", { d: "M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z" }, null, -1)
+            P("path", { d: "M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 11.793a1 1 0 1 1-1.414 1.414L10 11.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L8.586 10 6.293 7.707a1 1 0 0 1 1.414-1.414L10 8.586l2.293-2.293a1 1 0 0 1 1.414 1.414L11.414 10l2.293 2.293Z" }, null, -1)
           ]))) : K("", !0),
           l.type === "warning" ? (F(), U("svg", mt, i[2] || (i[2] = [
-            k("path", { d: "M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z" }, null, -1)
+            P("path", { d: "M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM10 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-4a1 1 0 0 1-2 0V6a1 1 0 0 1 2 0v5Z" }, null, -1)
           ]))) : K("", !0)
         ], 2),
-        k("div", gt, ct(l.message), 1),
-        k("button", {
+        P("div", gt, ct(l.message), 1),
+        P("button", {
           onClick: (p) => ue(n)(l.id),
           class: "ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg p-1.5 inline-flex items-center justify-center h-8 w-8"
         }, i[3] || (i[3] = [
-          k("svg", {
+          P("svg", {
             class: "w-3 h-3",
             xmlns: "http://www.w3.org/2000/svg",
             fill: "none",
             viewBox: "0 0 14 14"
           }, [
-            k("path", {
+            P("path", {
               stroke: "currentColor",
               "stroke-linecap": "round",
               "stroke-linejoin": "round",
@@ -151,12 +151,12 @@ function Ot(e) {
   let t;
   return typeof ArrayBuffer < "u" && ArrayBuffer.isView ? t = ArrayBuffer.isView(e) : t = e && e.buffer && je(e.buffer), t;
 }
-const Nt = ne("string"), T = ne("function"), qe = ne("number"), re = (e) => e !== null && typeof e == "object", vt = (e) => e === !0 || e === !1, X = (e) => {
+const Nt = ne("string"), T = ne("function"), qe = ne("number"), re = (e) => e !== null && typeof e == "object", kt = (e) => e === !0 || e === !1, X = (e) => {
   if (te(e) !== "object")
     return !1;
   const t = be(e);
   return (t === null || t === Object.prototype || Object.getPrototypeOf(t) === null) && !(Symbol.toStringTag in e) && !(Symbol.iterator in e);
-}, kt = A("Date"), Pt = A("File"), Ut = A("Blob"), Ft = A("FileList"), Lt = (e) => re(e) && T(e.pipe), Bt = (e) => {
+}, Pt = A("Date"), vt = A("File"), Ut = A("Blob"), Ft = A("FileList"), Lt = (e) => re(e) && T(e.pipe), Bt = (e) => {
   let t;
   return e && (typeof FormData == "function" && e instanceof FormData || T(e.append) && ((t = te(e)) === "formdata" || // detect form-data instance
   t === "object" && T(e.toString) && e.toString() === "[object FormData]"));
@@ -306,7 +306,7 @@ const an = (e) => {
   isArrayBufferView: Ot,
   isString: Nt,
   isNumber: qe,
-  isBoolean: vt,
+  isBoolean: kt,
   isObject: re,
   isPlainObject: X,
   isReadableStream: jt,
@@ -314,8 +314,8 @@ const an = (e) => {
   isResponse: Mt,
   isHeaders: It,
   isUndefined: z,
-  isDate: kt,
-  isFile: Pt,
+  isDate: Pt,
+  isFile: vt,
   isBlob: Ut,
   isRegExp: en,
   isFunction: T,
@@ -762,7 +762,7 @@ function Nn(e) {
     t[r[1]] = r[2];
   return t;
 }
-const vn = (e) => /^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(e.trim());
+const kn = (e) => /^[-_a-zA-Z0-9^`|~,!#$%&'*+.]+$/.test(e.trim());
 function ae(e, t, n, r, s) {
   if (a.isFunction(r))
     return r.call(this, t, n);
@@ -773,10 +773,10 @@ function ae(e, t, n, r, s) {
       return r.test(t);
   }
 }
-function kn(e) {
+function Pn(e) {
   return e.trim().toLowerCase().replace(/([a-z\d])(\w*)/g, (t, n, r) => n.toUpperCase() + r);
 }
-function Pn(e, t) {
+function vn(e, t) {
   const n = a.toCamelCase(" " + t);
   ["get", "set", "has"].forEach((r) => {
     Object.defineProperty(e, r + n, {
@@ -803,7 +803,7 @@ let C = class {
     const i = (l, p) => a.forEach(l, (c, u) => o(c, u, p));
     if (a.isPlainObject(t) || t instanceof this.constructor)
       i(t, n);
-    else if (a.isString(t) && (t = t.trim()) && !vn(t))
+    else if (a.isString(t) && (t = t.trim()) && !kn(t))
       i(On(t), n);
     else if (a.isHeaders(t))
       for (const [l, p] of t.entries())
@@ -864,7 +864,7 @@ let C = class {
         n[i] = Z(s), delete n[o];
         return;
       }
-      const l = t ? kn(o) : String(o).trim();
+      const l = t ? Pn(o) : String(o).trim();
       l !== o && delete n[o], n[l] = Z(s), r[l] = !0;
     }), this;
   }
@@ -900,7 +900,7 @@ let C = class {
     }).accessors, s = this.prototype;
     function o(i) {
       const l = H(i);
-      r[l] || (Pn(s, i), r[l] = !0);
+      r[l] || (vn(s, i), r[l] = !0);
     }
     return a.isArray(t) ? t.forEach(o) : o(t), this;
   }
@@ -1150,10 +1150,10 @@ const et = (e) => {
         config: e,
         request: d
       };
-      Qe(function(P) {
-        n(P), m();
-      }, function(P) {
-        r(P), m();
+      Qe(function(v) {
+        n(v), m();
+      }, function(v) {
+        r(v), m();
       }, R), d = null;
     }
     "onloadend" in d ? d.onloadend = w : d.onreadystatechange = function() {
@@ -1234,7 +1234,7 @@ const et = (e) => {
   } finally {
     await t.cancel();
   }
-}, ve = (e, t, n, r) => {
+}, ke = (e, t, n, r) => {
   const s = zn(e, t);
   let o = 0, i, l = (p) => {
     i || (i = !0, r && r(p));
@@ -1279,7 +1279,7 @@ const et = (e) => {
     }
   }).headers.has("Content-Type");
   return e && !t;
-}), ke = 64 * 1024, he = tt && nt(() => a.isReadableStream(new Response("").body)), Y = {
+}), Pe = 64 * 1024, he = tt && nt(() => a.isReadableStream(new Response("").body)), Y = {
   stream: he && ((e) => e.body)
 };
 oe && ((e) => {
@@ -1333,13 +1333,13 @@ const Kn = async (e) => {
         method: "POST",
         body: r,
         duplex: "half"
-      }), v;
-      if (a.isFormData(r) && (v = R.headers.get("content-type")) && u.setContentType(v), R.body) {
-        const [P, W] = Ae(
+      }), k;
+      if (a.isFormData(r) && (k = R.headers.get("content-type")) && u.setContentType(k), R.body) {
+        const [v, W] = Ae(
           d,
           Q(Oe(p))
         );
-        r = ve(R.body, ke, P, W);
+        r = ke(R.body, Pe, v, W);
       }
     }
     a.isString(h) || (h = h ? "include" : "omit");
@@ -1360,12 +1360,12 @@ const Kn = async (e) => {
       ["status", "statusText", "headers"].forEach((_e) => {
         R[_e] = E[_e];
       });
-      const v = a.toFiniteNumber(E.headers.get("content-length")), [P, W] = l && Ae(
-        v,
+      const k = a.toFiniteNumber(E.headers.get("content-length")), [v, W] = l && Ae(
+        k,
         Q(Oe(l), !0)
       ) || [];
       E = new Response(
-        ve(E.body, ke, P, () => {
+        ke(E.body, Pe, v, () => {
           W && W(), m && m();
         }),
         R
@@ -1373,8 +1373,8 @@ const Kn = async (e) => {
     }
     c = c || "text";
     let N = await Y[a.findKey(Y, c) || "text"](E, e);
-    return !S && m && m(), await new Promise((R, v) => {
-      Qe(R, v, {
+    return !S && m && m(), await new Promise((R, k) => {
+      Qe(R, k, {
         data: N,
         headers: C.from(E.headers),
         status: E.status,
@@ -1405,7 +1405,7 @@ a.forEach(me, (e, t) => {
     Object.defineProperty(e, "adapterName", { value: t });
   }
 });
-const Pe = (e) => `- ${e}`, Gn = (e) => a.isFunction(e) || e === null || e === !1, rt = {
+const ve = (e) => `- ${e}`, Gn = (e) => a.isFunction(e) || e === null || e === !1, rt = {
   getAdapter: (e) => {
     e = a.isArray(e) ? e : [e];
     const { length: t } = e;
@@ -1425,8 +1425,8 @@ const Pe = (e) => `- ${e}`, Gn = (e) => a.isFunction(e) || e === null || e === !
         ([l, p]) => `adapter ${l} ` + (p === !1 ? "is not supported by the environment" : "is not available in the build")
       );
       let i = t ? o.length > 1 ? `since :
-` + o.map(Pe).join(`
-`) : " " + Pe(o[0]) : "as no adapter specified";
+` + o.map(ve).join(`
+`) : " " + ve(o[0]) : "as no adapter specified";
       throw new g(
         "There is no suitable adapter to dispatch the request " + i,
         "ERR_NOT_SUPPORT"
@@ -1855,7 +1855,7 @@ const {
         withCredentials: !0
         // Important pour recevoir les cookies
       });
-      return w.status === 200 ? (n.value = !0, e.value = w.data.user_detail || null, e.value && sessionStorage.setItem("user_id", e.value.user_id.toString()), !0) : !1;
+      return w.status === 200 ? (n.value = !0, e.value = w.data.user_detail || null, w.data.user_id && sessionStorage.setItem("user_id", w.data.user_id.toString()), !0) : !1;
     } catch (d) {
       return console.error("Erreur de connexion:", d), !1;
     }
@@ -2059,14 +2059,14 @@ const {
 function Nr() {
   return { ...Be.role };
 }
-function vr() {
+function kr() {
   return { ...Be.privilege };
 }
 export {
   ir as Spinner,
   or as Toast,
   L as api,
-  vr as createDefaultPrivilege,
+  kr as createDefaultPrivilege,
   Nr as createDefaultRole,
   Be as role,
   Cr as setApiBaseURL,
